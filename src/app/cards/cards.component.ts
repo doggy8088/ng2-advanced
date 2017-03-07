@@ -22,10 +22,15 @@ export class CardsComponent implements OnInit {
 
   num = 0;
 
+  p1;
+  p2;
+
   ngOnInit() {
 
-    // this.num = this.route.snapshot.params['num'];
+    this.p1 = this.route.snapshot.params['p1'];
+    this.p2 = this.route.snapshot.params['p2'];
 
+    // this.num = this.route.snapshot.params['num'];
     this.route.params.subscribe((params) => {
       if(params['num']) {
         this.num = parseInt(params['num']);
@@ -34,7 +39,13 @@ export class CardsComponent implements OnInit {
   }
 
   IncrementNum() {
-    this.router.navigate(['/cards', this.num+1]);
+    // this.router.navigate(['/cards', this.num+1]);
+    this.router.navigate(['..', this.num+1, { p1: this.p1, p2: this.p2 }], {
+      relativeTo: this.route,
+      queryParams: {
+        name: 'Will'
+      }
+    });
   }
 
 }
