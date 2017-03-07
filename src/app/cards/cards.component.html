@@ -43,8 +43,13 @@
                         <p class="mb-sm">Cras rutrum scelerisque auctor. Donec ultricies blandit venenatis. Nulla facilisi. Praesent diam diam, venenatis lorem par.</p>
                       </div>
                       <div class="card-footer">
-                        <button type="button" class="btn btn-flat btn-default">Action 1</button>
-                        <button type="button" class="btn btn-flat btn-default">Action 2</button>
+                        <button type="button" class="btn btn-flat btn-default"
+                          routerLink="/">GO HOME</button>
+                        <button type="button" class="btn btn-flat btn-default"
+                          [routerLink]="['/charts', 'flot']">GO Flot</button>
+                        <button type="button" class="btn btn-flat btn-default"
+                          [routerLink]="['..', this.num+1, { p1: this.p1, p2: this.p2 }]"
+                          [queryParams]="{ name: 'Will' }">+1</button>
                       </div>
                     </div>
                   </div>
