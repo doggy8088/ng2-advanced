@@ -1,3 +1,4 @@
+import { FlotComponent } from './charts/flot/flot.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Route } from '@angular/router';
 
@@ -15,6 +16,12 @@ const routes: Routes = [
   { path: 'cards', component: CardsComponent },
   { path: 'page1', component: Page1Component },
   { path: 'page2', component: Page2Component },
+  { path: 'charts',
+    children: [
+      { path: '', redirectTo: 'flot', pathMatch: 'full' },
+      { path: 'flot', component: FlotComponent }
+    ]
+  },
   fallbackRoute
 ];
 
