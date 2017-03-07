@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -20,7 +20,21 @@ export class CardsComponent implements OnInit {
     this.router.navigate(['/charts', 'flot']);
   }
 
+  num = 0;
+
   ngOnInit() {
+
+    // this.num = this.route.snapshot.params['num'];
+
+    this.route.params.subscribe((params) => {
+      if(params['num']) {
+        this.num = parseInt(params['num']);
+      }
+    });
+  }
+
+  IncrementNum() {
+    this.router.navigate(['/cards', this.num+1]);
   }
 
 }

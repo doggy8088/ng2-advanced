@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'cards', component: CardsComponent },
+  { path: 'cards/:num', component: CardsComponent },
   { path: 'page1', component: Page1Component },
   { path: 'page2', component: Page2Component },
   { path: 'charts',
