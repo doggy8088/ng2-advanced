@@ -1,13 +1,18 @@
+import { LayoutComponent } from './../layout/layout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { FlotComponent } from './flot/flot.component';
 
 const routes: Routes = [
-  { path: 'charts',
+  { path: '', component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'flot', pathMatch: 'full' },
-      { path: 'flot', component: FlotComponent }
+      { path: 'charts',
+        children: [
+          { path: '', redirectTo: 'flot', pathMatch: 'full' },
+          { path: 'flot', component: FlotComponent }
+        ]
+      }
     ]
   }
 ];
