@@ -2,7 +2,7 @@
         <section>
           <div class="container-fluid">
             <h5 class="mt0">Classic form controls and custom variants</h5>
-            <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
+            <pre>{{ data | json }}</pre>
             <div class="card">
               <div class="card-body">
                 <form method="get" action="/" class="form-horizontal">
@@ -10,7 +10,8 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Rounded Corners</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control rounded">
+                        <input type="text" class="form-control rounded"
+                          name="title" [(ngModel)]="data.title">
                       </div>
                     </div>
                   </fieldset>
