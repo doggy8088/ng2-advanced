@@ -14,6 +14,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { NeedLoginGuard } from "./need-login.guard";
 import { FormComponent } from './form/form.component';
+import { Form2Component } from './form2/form2.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormComponent } from './form/form.component';
     CardsComponent,
     LayoutComponent,
     LoginComponent,
-    FormComponent
+    FormComponent,
+    Form2Component
   ],
   imports: [
     BrowserModule,

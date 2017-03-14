@@ -2,15 +2,6 @@
         <section>
           <div class="container-fluid">
             <h5 class="mt0">Classic form controls and custom variants</h5>
-            <pre>{{ data | json }}</pre>
-            <pre>{{
-                    {
-                      value: mTitle.value,
-                      errors: mTitle.errors,
-                      valid: mTitle.valid,
-                      dirty: mTitle.dirty,
-                      touched: mTitle.touched
-                    } | json }}</pre>
             <pre>{{ f.value | json }}</pre>
             <pre>{{
                     {
@@ -23,16 +14,14 @@
 
             <div class="card">
               <div class="card-body">
-                <form method="get" action="/" class="form-horizontal"
-                  (ngSubmit)="doSubmit(f)" #f="ngForm" novalidate>
+                <form class="form-horizontal" [formGroup]="form"
+                  #f="ngForm" novalidate>
                   <fieldset>
-                    <div class="form-group" [class.has-error]="mTitle.dirty && mTitle.errors?.required">
+                    <div class="form-group">
                       <label class="col-sm-2 control-label">Rounded Corners</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control rounded"
-                          name="title" [(ngModel)]="data.title"
-                          required [disabled]="mTitle.value == '123'"
-                          #mTitle="ngModel">
+                          formControlName="title">
                           <input type="submit" name="" value="送出">
                       </div>
                     </div>
@@ -40,40 +29,13 @@
                   <fieldset>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">With help</label>
-                      <div class="col-sm-10" [class.has-error]="mSubtitle.errors?.required">
+                      <div class="col-sm-10">
                         <input type="text" class="form-control"
-                          [(ngModel)]="data.subtitle"
-                          name="subtitle"
-                          required [disabled]="mSubtitle.value == '123'"
-                          #mSubtitle="ngModel"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                          formControlName="subtitle"
+                          ><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                       </div>
                     </div>
                   </fieldset>
-
-<div ngModelGroup="profile">
-                  <fieldset>
-                    <div class="form-group" [class.has-error]="mType1.errors?.required">
-                      <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
-                      <div class="col-sm-10">
-                        <input id="input-id-1" type="text" class="form-control" name="type1"
-                        #mType1="ngModel"
-                        [(ngModel)]="data.type1">
-                      </div>
-                    </div>
-                  </fieldset>
-                  <fieldset>
-                    <div class="form-group" [class.has-error]="mType2.errors?.required">
-                      <label class="col-sm-2 control-label">Password</label>
-                      <div class="col-sm-10">
-                        <input type="password" name="password"
-                        name="type2" [(ngModel)]="data.type2"
-                        minlength="6" [required]="data.type1 != ''"
-                        #mType2="ngModel"
-                        class="form-control">
-                      </div>
-                    </div>
-                  </fieldset>
-</div>
 
                   <fieldset>
                     <div class="form-group">

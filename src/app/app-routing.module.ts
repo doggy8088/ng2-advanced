@@ -1,3 +1,4 @@
+import { Form2Component } from './form2/form2.component';
 import { FormComponent } from './form/form.component';
 import { NeedLoginGuard } from './need-login.guard';
 import { LoginComponent } from './login/login.component';
@@ -17,8 +18,9 @@ import { fallbackRoute } from './fallback-route';
 const routes: Routes = [
   { path: '', component: LayoutComponent,
     children: [
-      { path: '', redirectTo: '/form', pathMatch: 'full' },
+      { path: '', redirectTo: '/form2', pathMatch: 'full' },
       { path: 'form', component: FormComponent },
+      { path: 'form2', component: Form2Component },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'cards', component: CardsComponent },
       { path: 'cards/:num', component: CardsComponent },
