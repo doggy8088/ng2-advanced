@@ -17,6 +17,13 @@ export class Form2Component implements OnInit {
   ngOnInit() {
 
     this.form = this.fb.group({
+      'f1': '123',
+      'f2': 'f2'
+    })
+
+    this.form = this.fb.group(new MyData());
+
+    this.form = this.fb.group({
       'title': [
         'p1 default value',
         [
@@ -34,4 +41,9 @@ export class Form2Component implements OnInit {
 
   }
 
+}
+
+class MyData {
+  f1: string;
+  f2: string;
 }
