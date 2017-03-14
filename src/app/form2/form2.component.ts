@@ -1,5 +1,6 @@
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { MyNameValidator } from "./validators/myname.validator";
 
 @Component({
   selector: 'app-form2',
@@ -28,7 +29,8 @@ export class Form2Component implements OnInit {
         'p1 default value',
         [
           Validators.required,
-          Validators.maxLength(10)
+          Validators.maxLength(10),
+          MyNameValidator
         ]
       ],
       'subtitle': ['p2 default value', Validators.required],
