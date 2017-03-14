@@ -1,3 +1,4 @@
+import { Advcomp1Component } from './advcomp1/advcomp1.component';
 import { Form2Component } from './form2/form2.component';
 import { FormComponent } from './form/form.component';
 import { NeedLoginGuard } from './need-login.guard';
@@ -16,6 +17,7 @@ import { CardsComponent } from './cards/cards.component';
 import { fallbackRoute } from './fallback-route';
 
 const routes: Routes = [
+  { path: 'advcomp1', component: Advcomp1Component },
   { path: '', component: LayoutComponent,
     children: [
       { path: '', redirectTo: '/form2', pathMatch: 'full' },
