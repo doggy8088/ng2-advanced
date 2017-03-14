@@ -24,7 +24,7 @@
             <div class="card">
               <div class="card-body">
                 <form method="get" action="/" class="form-horizontal"
-                  (ngSubmit)="doSubmit(f)" #f="ngForm">
+                  (ngSubmit)="doSubmit(f)" #f="ngForm" novalidate>
                   <fieldset>
                     <div class="form-group" [class.has-error]="mTitle.errors?.required">
                       <label class="col-sm-2 control-label">Rounded Corners</label>
@@ -49,11 +49,13 @@
                       </div>
                     </div>
                   </fieldset>
+
+<div ngModelGroup="profile">
                   <fieldset>
                     <div class="form-group">
                       <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
                       <div class="col-sm-10">
-                        <input id="input-id-1" type="text" class="form-control">
+                        <input id="input-id-1" type="text" class="form-control" name="type1" [(ngModel)]="data.type1">
                       </div>
                     </div>
                   </fieldset>
@@ -61,10 +63,15 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Password</label>
                       <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password"
+                        name="type2" [(ngModel)]="data.type2"
+                        minlength="6"
+                        class="form-control">
                       </div>
                     </div>
                   </fieldset>
+</div>
+
                   <fieldset>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Placeholder</label>
