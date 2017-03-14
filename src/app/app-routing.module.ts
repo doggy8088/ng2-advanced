@@ -1,3 +1,4 @@
+import { FormComponent } from './form/form.component';
 import { NeedLoginGuard } from './need-login.guard';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -16,7 +17,8 @@ import { fallbackRoute } from './fallback-route';
 const routes: Routes = [
   { path: '', component: LayoutComponent,
     children: [
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: '/form', pathMatch: 'full' },
+      { path: 'form', component: FormComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'cards', component: CardsComponent },
       { path: 'cards/:num', component: CardsComponent },
