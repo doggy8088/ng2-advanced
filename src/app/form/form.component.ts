@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-form',
@@ -14,4 +15,9 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
+  doSubmit(f: NgForm) {
+    if(f.valid) {
+      console.log(f.value);
+    }
+  }
 }

@@ -11,26 +11,41 @@
                       dirty: mTitle.dirty,
                       touched: mTitle.touched
                     } | json }}</pre>
+            <pre>{{ f.value | json }}</pre>
+            <pre>{{
+                    {
+                      value: f.value,
+                      errors: f.errors,
+                      valid: f.valid,
+                      dirty: f.dirty,
+                      touched: f.touched
+                    } | json }}</pre>
 
             <div class="card">
               <div class="card-body">
-                <form method="get" action="/" class="form-horizontal">
+                <form method="get" action="/" class="form-horizontal"
+                  (ngSubmit)="doSubmit(f)" #f="ngForm">
                   <fieldset>
                     <div class="form-group" [class.has-error]="mTitle.errors?.required">
                       <label class="col-sm-2 control-label">Rounded Corners</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control rounded"
                           name="title" [(ngModel)]="data.title"
-                          required
+                          required [disabled]="mTitle.value == '123'"
                           #mTitle="ngModel">
+                          <input type="submit" name="" value="送出">
                       </div>
                     </div>
                   </fieldset>
                   <fieldset>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">With help</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                      <div class="col-sm-10" [class.has-error]="mSubtitle.errors?.required">
+                        <input type="text" class="form-control"
+                          [(ngModel)]="data.subtitle"
+                          name="subtitle"
+                          required [disabled]="mSubtitle.value == '123'"
+                          #mSubtitle="ngModel"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                       </div>
                     </div>
                   </fieldset>
