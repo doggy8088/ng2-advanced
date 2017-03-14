@@ -10,13 +10,26 @@ export class Form2Component implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
+  types = [1,2,3,4,5];
+
   form: any;
 
   ngOnInit() {
 
     this.form = this.fb.group({
-      'title': ['p1 default value', Validators.required],
-      'subtitle': ['p2 default value', Validators.required]
+      'title': [
+        'p1 default value',
+        [
+          Validators.required,
+          Validators.maxLength(10)
+        ]
+      ],
+      'subtitle': ['p2 default value', Validators.required],
+      'types': this.fb.array(
+        this.types.map((v, idx) => {
+          return this.fb.control(v, Validators.required)
+        })
+      )
     })
 
   }
