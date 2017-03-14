@@ -5,14 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { FlotComponent } from './flot/flot.component';
 
 const routes: Routes = [
-  { path: '', component: LayoutComponent,
+  { path: 'charts',
     children: [
-      { path: 'charts',
-        children: [
-          { path: '', redirectTo: 'flot', pathMatch: 'full' },
-          { path: 'flot', component: FlotComponent }
-        ]
-      }
+      { path: '', redirectTo: 'flot', pathMatch: 'full' },
+      { path: 'flot', component: FlotComponent }
     ]
   }
 ];
