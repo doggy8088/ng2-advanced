@@ -3,6 +3,15 @@
           <div class="container-fluid">
             <h5 class="mt0">Classic form controls and custom variants</h5>
             <pre>{{ data | json }}</pre>
+            <pre>{{
+                    {
+                      value: mTitle.value,
+                      errors: mTitle.errors,
+                      valid: mTitle.valid,
+                      dirty: mTitle.dirty,
+                      touched: mTitle.touched
+                    } | json }}</pre>
+
             <div class="card">
               <div class="card-body">
                 <form method="get" action="/" class="form-horizontal">
@@ -11,7 +20,9 @@
                       <label class="col-sm-2 control-label">Rounded Corners</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control rounded"
-                          name="title" [(ngModel)]="data.title">
+                          name="title" [(ngModel)]="data.title"
+                          required
+                          #mTitle="ngModel">
                       </div>
                     </div>
                   </fieldset>
