@@ -1,4 +1,4 @@
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,8 +15,8 @@ export class Form2Component implements OnInit {
   ngOnInit() {
 
     this.form = this.fb.group({
-      'title': 'p1 default value',
-      'subtitle': 'p2 default value'
+      'title': ['p1 default value', Validators.required],
+      'subtitle': ['p2 default value', Validators.required]
     })
 
   }
