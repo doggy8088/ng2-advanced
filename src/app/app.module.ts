@@ -12,6 +12,7 @@ import { CardsComponent } from './cards/cards.component';
 
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { NeedLoginGuard } from "./need-login.guard";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NeedLoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { NeedLoginGuard } from './need-login.guard';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { FlotComponent } from './charts/flot/flot.component';
@@ -21,7 +22,10 @@ const routes: Routes = [
       { path: 'cards/:num', component: CardsComponent },
       { path: 'page1', component: Page1Component },
       { path: 'page2', component: Page2Component },
-      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' }
+      { path: 'charts',
+        loadChildren: './charts/charts.module#ChartsModule',
+        canActivate: [NeedLoginGuard]
+      }
     ]
   },
   { path: 'login', component: LoginComponent },
