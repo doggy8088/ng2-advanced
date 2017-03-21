@@ -15,9 +15,9 @@ export class Test1Directive {
    * (click)="changeColor($event)"
    */
   @HostListener('click', ['$event'])
-  changeColor($event) {
+  changeColor($event: MouseEvent) {
     this.textColor = 'darkgreen';
-    console.log($event);
+    console.dir($event.target);
   }
   constructor() { }
 
