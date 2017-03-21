@@ -1,19 +1,29 @@
-import {NgZone, Component,  OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, NgZone, Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FlotCharts } from "./init";
+import 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-flot',
   templateUrl: './flot.component.html',
-  styleUrls: ['./flot.component.css']
+  styleUrls: ['./flot.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FlotComponent implements OnInit {
 
-  constructor(private zone: NgZone) { }
+  temp = 1;
+
+  constructor(private zone: NgZone, private cd: ChangeDetectorRef) {
+    Observable.interval(1000).subscribe((id) => {
+      this.temp++;
+      this.cd.markForCheck();
+    });
+  }
 
   ngOnInit() {
-    this.zone.runOutsideAngular(() => {
+    // this.zone.runOutsideAngular(() => {
       $(FlotCharts);
-    });
+    // });
   }
 
   showText() {
