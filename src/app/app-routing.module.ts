@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'advcomp1', component: Advcomp1Component },
   { path: '', component: LayoutComponent,
     children: [
-      { path: '', redirectTo: '/form2', pathMatch: 'full' },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'form', component: FormComponent },
       { path: 'form2', component: Form2Component },
       { path: 'dashboard', component: DashboardComponent },
