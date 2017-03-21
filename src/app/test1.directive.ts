@@ -1,4 +1,4 @@
-import {HostListener, Directive,  HostBinding} from '@angular/core';
+import {Renderer, ElementRef,  HostListener,   Directive,    HostBinding} from '@angular/core';
 
 @Directive({
   selector: '[appTest1]'
@@ -19,6 +19,12 @@ export class Test1Directive {
     this.textColor = 'darkgreen';
     console.dir($event.target);
   }
-  constructor() { }
+
+  constructor(private el: ElementRef, private renderer: Renderer) {
+
+  }
+
+  ngOnInit() {
+  }
 
 }
